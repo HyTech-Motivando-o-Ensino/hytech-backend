@@ -4,13 +4,12 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
-
 app.add_middleware(
-    TrustedHostMiddleware, allowed_hosts=["127.0.0.1"]
+    TrustedHostMiddleware, allowed_hosts=["*"]
 )
 
-app.get("/")
-def index(request: Request):
+@app.get("/")
+def index():
     response = {"msg": "Hello World"}
     
     return JSONResponse(response)
