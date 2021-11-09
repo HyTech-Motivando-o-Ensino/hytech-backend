@@ -17,3 +17,7 @@ from subjects import Subjects
 class TesteSubjects(TestCase):
     def setUp(self):
         self.subjects = Subjects()
+
+
+if __name__ == '__main__':
+    main(verbosity=2)

@@ -17,3 +17,7 @@ from professor import Professor
 class TesteProfessor(TestCase):
     def setUp(self):
         self.professor = Professor()
+
+
+if __name__ == '__main__':
+    main(verbosity=2)

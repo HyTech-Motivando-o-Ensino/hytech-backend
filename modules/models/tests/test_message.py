@@ -17,3 +17,8 @@ from message import Message
 class TesteMessage(TestCase):
     def setUp(self):
         self.message = Message()
+
+
+
+if __name__ == '__main__':
+    main(verbosity=2)

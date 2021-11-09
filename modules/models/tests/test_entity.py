@@ -17,3 +17,7 @@ from entity import Entity
 class TesteEntity(TestCase):
     def setUp(self):
         self.entity = Entity()
+        
+
+if __name__ == '__main__':
+    main(verbosity=2)
