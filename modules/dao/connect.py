@@ -4,11 +4,17 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-
 class ConnectDB():
     def __init__(self):
+        self.host = ""
+        self.user = ""
+        self.password = ""
+        self.database = ""
+
         # Configurando dotenv.
         # self.env_path = '/home/jeremias/Documents/cesar/code/hytech-backend/.env'
+        
+    def initialize(self):
         try:
             self.env_path = Path('modules/..')/'.env'
             load_dotenv(dotenv_path=self.env_path)
@@ -19,11 +25,13 @@ class ConnectDB():
             self.user = os.getenv("DATABASE_USER")
             self.password = os.getenv("DATABASE_PASSWORD")
             self.database = os.getenv("DATABASE_NAME")
-    
+        return self.env_path
+
     def connect(self):
         try:
             db_connection = mysql.connector.connect(host=self.host, user=self.user, 
                                                     password=self.password, database=self.database)
+            print(type(db_connection))
             return db_connection
         except mysql.connector.Error as error:
             if error.errno == errorcode.ER_BAD_DB_ERROR:

@@ -12,30 +12,18 @@ try:
 except:
     raise
 from connect import ConnectDB
-
+from mysql.connector.connection_cext import CMySQLConnection
 
 class TesteConnectDB(TestCase):
     def setUp(self):
         self.connect = ConnectDB()
     
     def test_class_construct_erro_acessando_dotenv(self):
-        self.assertEqual(ConnectDB(), "modules/../.env")
+        self.assertEqual(self.connect.initialize(), "modules/../.env")
 
     def test_connection_db(self):
         db_return = self.connect.connect()
-        self.assertIsInstance(db_return, )
-    
-    def test_class_attr_id_e_int(self):
-        self.assertIsInstance(self.class_.get_id(), int)
-    
-    def test_class_attr_course_id_e_int(self):
-        self.assertIsInstance(self.class_.get_course_id(), int)
-    
-    def test_class_attr_period_e_int(self):
-        self.assertIsInstance(self.class_.get_period(), int)
-
-    def test_class_attr_zoom_id_e_str(self):
-        self.assertIsInstance(self.class_.get_zoom_id(), str)
+        self.assertIsInstance(db_return, CMySQLConnection)
 
 if __name__ == '__main__':
     main(verbosity=2)
