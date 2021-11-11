@@ -10,6 +10,7 @@ class ConnectDB():
         self.user = ""
         self.password = ""
         self.database = ""
+        self.initialize()
 
         # Configurando dotenv.
         # self.env_path = '/home/jeremias/Documents/cesar/code/hytech-backend/.env'
@@ -31,7 +32,6 @@ class ConnectDB():
         try:
             db_connection = mysql.connector.connect(host=self.host, user=self.user, 
                                                     password=self.password, database=self.database)
-            print(type(db_connection))
             return db_connection
         except mysql.connector.Error as error:
             if error.errno == errorcode.ER_BAD_DB_ERROR:

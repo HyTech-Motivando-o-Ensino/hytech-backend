@@ -9,8 +9,15 @@ def main():
     global db_cursor
     
     db_instance = ConnectDB().connect()
-    db_cursor = db_instance.cursor()
 
+def get_status_db():
+    try:
+        db_cursor = db_instance.cursor()
+        db_cursor.execute("SELECT * FROM test")
+        result = db_cursor.fetchall()
+        return result[0][0]
+    except Exception as e:
+        raise e
 
 if __name__ == '__main__':
     main()

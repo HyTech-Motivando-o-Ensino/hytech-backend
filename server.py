@@ -21,8 +21,8 @@ def index():
 def status_db():
     try:
         # testar o banco de dados
-        
-        response = {"msg": "Banco da dados bem testado"}
+        result = dao.get_status_db()
+        response = {"msg": result}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
     
