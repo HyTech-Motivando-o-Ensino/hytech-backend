@@ -27,4 +27,9 @@ def status_db():
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
     
     return JSONResponse(response)
+
+@app.get("/create/")
+def index():
+    response = {"msg": "Hello World Jeremias"}
     
+    return JSONResponse(response)
