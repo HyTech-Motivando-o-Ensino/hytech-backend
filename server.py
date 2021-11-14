@@ -28,3 +28,14 @@ def status_db():
     
     return JSONResponse(response)
     
+@app.get("/test/db/")
+def status_db():
+    try:
+        # testar o banco de dados
+        result = dao.get_class()
+        response = {"msg": result}
+    except Exception as e:
+        response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
+    
+    return JSONResponse(response)
+    

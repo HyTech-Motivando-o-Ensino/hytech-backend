@@ -19,5 +19,17 @@ def get_status_db():
     except Exception as e:
         raise e
 
+def get_class():
+    try:
+        db_cursor = db_instance.cursor()
+        db_cursor.execute("SELECT id, course_id, period, zoom_id FROM class")
+        result = db_cursor.fetchall()
+        
+        for obj in result:
+            print(obj)
+        return "Finished"
+    except Exception as e:
+        raise e
+
 if __name__ == '__main__':
     main()
