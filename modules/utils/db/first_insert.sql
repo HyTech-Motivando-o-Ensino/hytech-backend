@@ -1,13 +1,11 @@
 insert into subjects (name, period) values ("Fundamentos de Projetos I", 1);
-select * from subjects;
+-- select * from subjects;
 
-insert into courses (name, periods, type) values ("Ciência da Computação", 8, 1);
+insert into courses (name, periods, type) values ("Ciência da Computação", 8, "Graduação");
 describe courses;
 
-insert into courses (name, periods, type) values ("Ciência da Computação", 8, 1);
-
-insert into professor (name, slack, email, whatsapp, contact) 
-values ("Guilherme Pereira", "@guilherme.pereira", "gp@cesar.school", "81987384911", "0");
+insert into professor (name, slack, email, whatsapp, other, favorite) 
+values ("Guilherme Pereira", "@guilherme.pereira", "gp@cesar.school", "81987384911", "81985531727", 1);
 describe professor;
 
 insert into class (course_id, period, zoom_id) values (1, 1, "983 8944 9849");
