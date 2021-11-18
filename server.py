@@ -62,7 +62,6 @@ def get_pronoun():
     except Exception as e:
         response = {"msg": "Não foi possível...: {}".format(e)}
     
-<<<<<<< HEAD
     return JSONResponse(response)
 
 @app.get("/get/zoom_class_link/")
@@ -154,18 +153,3 @@ def get_notices_discipline():
         response = {"msg": "Não foi possível...: {}".format(e)}
     
     return JSONResponse(response)
-=======
-@app.get("/test/db/")
-def test_db():
-    try:
-        # testar o banco de dados
-        # result = dao.trans_sql('class','id', 'course_id', 'period', 'zoom_id')
-        result = dao.get_all_class()
-        print(result)
-        response = {"msg": result}
-    except Exception as e:
-        response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
-    
-    return JSONResponse(response)
-    
->>>>>>> 3078fba4c65bc6d054d16faa5714100d0de8b867
