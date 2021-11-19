@@ -60,9 +60,9 @@ def get_periods_by_id_course(id_course: int):
     return JSONResponse(response)
 
 @app.get("/get/professors/{id_periods}/{id_course}/")
-def get_professors_by_id_periods_and_id_course(id_course: int):
+def get_professors_by_id_periods_and_id_course(id_periods: int, id_course: int):
     try:
-        response = {"msg": "o id do curso passado foi: {}".format(id_course)}
+        response = {"msg": "o id do curso passado foi: {}".format(id_periods, id_course)}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
     
@@ -78,10 +78,28 @@ def get_subject_all():
     
     return JSONResponse(response)
 
+@app.get("/get/subject/{id_class}")
+def get_subject_by_id_class(id_class: int):
+    try:
+        response = {"msg": "o id do curso passado foi: {}".format(id_class)}
+    except Exception as e:
+        response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
+    
+    return JSONResponse(response)
+
 @app.get("/get/class/all/")
 def get_class_all():
     try:
         response = {"msg": "Sucesso"}
+    except Exception as e:
+        response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
+    
+    return JSONResponse(response)
+
+@app.get("/get/class/{id_professor}}")
+def get_class_by_id_professor(id_professor: int):
+    try:
+        response = {"msg": "o id do curso passado foi: {}".format(id_professor)}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
     
