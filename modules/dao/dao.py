@@ -124,6 +124,25 @@ def get_courses_all_periods_by_id_course(id_course):
     except Exception as e:
         raise e
 
+def get_all_professor_by_period_id_course(period, id_course):
+    try:
+        # pegar todos professor_id da tabela professor_course de um determinado curso(id)
+        sql = trans_sql_select('professor_course', 'professor_id', where="course_id = '{}'".format(id_course))
+        professor_class_id_list = get_select_executor(sql)
+        print(professor_class_id_list)
+        # pegar todos subjects_id de um determinado professor_id da tabela professor_class para poder separar os periodos
+        
+        # pegar todos subjects_id do 'periodo' passado
+        
+        # pegar todos contatos do professor no id passado
+        
+
+        # periods = dict()
+        # periods["periods"] = result[0][0]
+
+        return "success"
+    except Exception as e:
+        raise e
 
 def get_all_professor():
     try:
