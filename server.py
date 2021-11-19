@@ -41,19 +41,21 @@ def test_db():
     
     return JSONResponse(response)
 
-@app.get("/get/courses/all/")
+@app.get("/get/courses/all/name/id/")
 def get_courses_all():
     try:
-        response = {"msg": "Sucesso"}
+        result = dao.get_all_courses_name_and_id()
+        response = {"msg": result}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
-    
+
     return JSONResponse(response)
 
-@app.get("/get/periods/{id_course}/")
-def get_periods_by_id_course(id_course: int):
+@app.get("/get/course/periods/{id_course}/")
+def get_curse_periods_by_id_course(id_course: int):
     try:
-        response = {"msg": "o id do curso passado foi: {}".format(id_course)}
+        result = dao.get_courses_all_periods_by_id_course(id_course)
+        response = {"msg": result}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
     

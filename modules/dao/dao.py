@@ -10,7 +10,7 @@ def main():
     
     db_instance = ConnectDB().connect()
 
-def trans_sql_select(table, *args):
+def trans_sql_select(table, *args, where=None):
     try:
         sql_query = "SELECT "
 
@@ -27,6 +27,10 @@ def trans_sql_select(table, *args):
             sql_query += arg
 
         sql_query += "FROM "+table
+
+        if where != None:
+            sql_query += (" WHERE "+where)
+
         return sql_query
     except Exception as e:
         raise e
@@ -77,7 +81,7 @@ def get_all_classroom_code():
 
 def get_all_courses():
     try:
-        sql = trans_sql_select('class', 'id', 'name', 'periods', 'type')
+        sql = trans_sql_select('courses', 'id', 'name', 'periods', 'type')
         result = get_select_executor(sql)
         
         list_courses = list()
@@ -87,6 +91,39 @@ def get_all_courses():
         return list_courses
     except Exception as e:
         raise e
+
+def get_all_courses_name_and_id():
+    try:
+        sql = trans_sql_select('courses', 'id', 'name')
+        result = get_select_executor(sql)
+        print(result)
+        
+        
+        list_courses = list()
+        
+        for obj in result:
+            courses = dict()
+            courses['id'] = obj[0]
+            courses['name'] = obj[1]
+            
+            list_courses.append(courses)
+
+        return list_courses
+    except Exception as e:
+        raise e
+
+def get_courses_all_periods_by_id_course(id_course):
+    try:
+        sql = trans_sql_select('courses', 'periods', where="id = '{}'".format(id_course))
+        result = get_select_executor(sql)
+
+        periods = dict()
+        periods["periods"] = result[0][0]
+
+        return periods
+    except Exception as e:
+        raise e
+
 
 def get_all_professor():
     try:
