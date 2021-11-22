@@ -41,10 +41,10 @@ def test_db():
     
     return JSONResponse(response)
 
-@app.get("/get/courses/all/name/id/")
+@app.get("/get/courses/all/")
 def get_courses_all():
     try:
-        result = dao.get_all_courses_name_and_id()
+        result = dao.get_all_courses()
         response = {"msg": result}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
