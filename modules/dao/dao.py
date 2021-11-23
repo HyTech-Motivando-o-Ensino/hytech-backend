@@ -72,7 +72,7 @@ def trans_sql_select_with_conditions(table, *args, where=None, subcondition=None
                 else:
                     sql_query += " or {} = '{}'".format(key, value)
 
-        # sql_query += " GROUP BY {}".format(subcondition[0][0])
+        sql_query += " GROUP BY {}".format(subcondition[0][0])
 
         return sql_query
     except Exception as e:
