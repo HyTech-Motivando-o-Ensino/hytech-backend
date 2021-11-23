@@ -32,7 +32,7 @@ pip install fastapi
 ```Python
 pip install "uvicorn[standard]"
 ```
-`OBS: É necessário instalar o uvicorn.`
+`OBS: É necessário instalar o uvicorn`
 ### 🟤Instale o requirements.txt
 ```Python
 pip install -r requirements.txt
