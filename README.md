@@ -1,6 +1,11 @@
 # Hytech->Backend
 ##### :question: Repositório para núcleo do backend do nosso projeto (Chatbot).
 
+- [Windows]()
+- [Linux]()
+- [Mac]()
+
+
 ># Para Windows:
 ## Instalando do projeto
 
