@@ -14,16 +14,20 @@
 ```Python
 git clone <https://github.com/HyTech-Motivando-o-Ensino/hytech-backend.git>
 ```
-`OBS: É necessário ter instalado o python 3.9`
+`OBS: É necessário ter instalado o git, acesse em: https://git-scm.com/downloads`
+`OBS: É necessário ter instalado o python 3.8.3, acesse em: https://www.python.org/downloads/`
 ### 🟤Entrando dentro do repositório crie a venv
 ```Python
 python -m venv venv
+```
+`OBS: É necessário instalar o ambiente virtual caso ainda não tenha em sua máquina`
+```Terminal
+pip install pipenv
 ```
 ### 🟤Ative a venv
 ```Python
 source venv/Scripts/activate
 ```
-`OBS: É necessário instalar o virtualenv`
 ### 🟤Instale o framework fastAPI
 ```Python
 pip install fastapi
