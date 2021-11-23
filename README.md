@@ -8,7 +8,7 @@
 - [Mac](#para-mac)
 
 # Para Windows
->## Instalando do projeto
+>## Instalando o projeto
 
 ### 🟤Clone nosso repositório backend usando o git bash
 ```Python
