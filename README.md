@@ -51,7 +51,7 @@ uvicorn server:app --reload
 ### 🟤Acesse http://127.0.0.1:8000
 
 # Para Linux
-###### (incompleto)
+###### (Em breve!)
 
 # Para Mac
-###### (incompleto)
+###### (Em breve!)
