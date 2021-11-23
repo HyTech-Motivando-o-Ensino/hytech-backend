@@ -14,6 +14,7 @@
 ```Python
 git clone <https://github.com/HyTech-Motivando-o-Ensino/hytech-backend.git>
 ```
+`OBS: É necessário ter instalado o python 3.9`
 ### 🟤Entrando dentro do repositório crie a venv
 ```Python
 python -m venv venv
@@ -22,7 +23,7 @@ python -m venv venv
 ```Python
 source venv/Scripts/activate
 ```
-`OBS: É necessário instalar o virtualenv.`
+`OBS: É necessário instalar o virtualenv`
 ### 🟤Instale o framework fastAPI
 ```Python
 pip install fastapi
@@ -37,7 +38,7 @@ pip install "uvicorn[standard]"
 pip install -r requirements.txt
 ```
 ``` json 
- OBS: Caso de erro, ainda irá rodar normalmente.
+ OBS: Caso de erro, ainda irá rodar normalmente
 ``` 
 
 >## Rodando o projeto novamente
