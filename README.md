@@ -15,6 +15,7 @@
 git clone <https://github.com/HyTech-Motivando-o-Ensino/hytech-backend.git>
 ```
 `OBS: É necessário ter instalado o git, acesse em: https://git-scm.com/downloads`
+
 `OBS: É necessário ter instalado o python 3.8.3, acesse em: https://www.python.org/downloads/`
 ### 🟤Entrando dentro do repositório crie a venv
 ```Python
