@@ -1,6 +1,8 @@
 <h1 align="center">Hytech->Backend</h1>
+
 :question: Repositório para núcleo do backend do nosso projeto (Chatbot).
 
+*Sistema Operacionais:*
 - [Windows](#para-windows)
 - [Linux](#para-linux)
 - [Mac](#para-mac)
