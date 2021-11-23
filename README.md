@@ -1,26 +1,47 @@
-# hytech-backend
-Repositório para núcleo do backend do nosso projeto (Chatbot)
+# Hytech->Backend
+##### :question: Repositório para núcleo do backend do nosso projeto (Chatbot).
 
-## Instalando/rodando projeto fastAPI (primeira vez)
+># Para Windows:
+## Instalando do projeto
 
-- clone nosso repositório backend
+### 🟤Clone nosso repositório backend usando o git bash
+```Python
+git clone <https://github.com/HyTech-Motivando-o-Ensino/hytech-backend.git>
+```
+### 🟤Entrando dentro do repositório crie a venv
+```Python
+python -m venv venv
+```
+### 🟤Ative a venv
+```Python
+source venv/Scripts/activate
+```
+`OBS: É necessário instalar o virtualenv.`
+### 🟤Instale o framework fastAPI
+```Python
+pip install fastapi
+```
+### 🟤Instale o servidor do fastAPI 
+```Python
+pip install "uvicorn[standard]"
+```
+`OBS: É necessário instalar o uvicorn.`
+### 🟤Instale o requirements.txt
+```Python
+pip install -r requirements.txt
+```
+``` json 
+ OBS: Caso de erro, ainda irá rodar normalmente.
+``` 
 
-- entrando dentro do repositório crie a venv
+## Rodando o projeto novamente
 
-- crie a venv dentro do repositório
-
-- ative a venv
-
-- instale o framework fastAPI $pip install fastapi
-
-- instale o servidor do fastAPI (Uvicorn) $pip install "uvicorn[standard]"
-
-- instale o requirements.txt $pip install -r requirements.txt
-
-(apartir da segunda vez)
-
-- com a venv ativa
-
-- $uvicorn server:app --reload
-
-- acesse http://127.0.0.1:8000
+### 🟤Ative a venv
+```Python
+source venv/Scripts/activate
+```
+### 🟤Rode o servidor
+```Python
+uvicorn server:app --reload
+```
+### 🟤Acesse http://127.0.0.1:8000
