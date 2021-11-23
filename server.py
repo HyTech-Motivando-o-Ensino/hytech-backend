@@ -65,7 +65,7 @@ def get_curse_periods_by_id_course(id_course: int):
 def get_professors_by_period_and_id_course(period: int, id_course: int):
     try:
         result = dao.get_all_professor_by_period_id_course(period, id_course)
-        response = {"msg": "o id do curso passado foi: {}".format(result)}
+        response = {"msg": result}
     except Exception as e:
         response = {"msg": "Ao visualizar o status do banco de dados: {}".format(e)}
     
