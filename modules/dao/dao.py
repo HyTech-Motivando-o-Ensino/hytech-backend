@@ -35,6 +35,47 @@ def trans_sql_select(table, *args, where=None):
     except Exception as e:
         raise e
 
+def trans_sql_select_with_conditions(table, *args, where=None, subcondition=None):
+    # SELECT professor_id FROM professor_course WHERE periods = '1' and professor_id = '1' and professor_id = '2';
+    try:
+        sql_query = "SELECT "
+
+        leng = len(args)
+        cont = 0
+
+        for arg in args:
+            cont += 1
+            if (cont == leng):
+                arg = arg+" "
+            else:
+                arg = arg+", "
+            
+            sql_query += arg
+
+        sql_query += "FROM "+table
+
+        if where != None:
+            sql_query += (" WHERE "+where)
+            sql_query += (" and (")
+
+        if subcondition != None and where != None:
+            cont = 0
+            size = len(subcondition)
+            for obj in subcondition:
+                key, value = obj
+                cont+=1
+                
+                if cont == 1:
+                    sql_query += "{} = '{}'".format(key, value)
+                elif cont == size:
+                    sql_query += " or {} = '{}')".format(key, value)
+                else:
+                    sql_query += " or {} = '{}'".format(key, value)
+
+        return sql_query
+    except Exception as e:
+        raise e
+
 def get_status_db():
     try:
         sql = trans_sql_select('test', '*')
@@ -128,19 +169,59 @@ def get_all_professor_by_period_id_course(period, id_course):
     try:
         # pegar todos professor_id da tabela professor_course de um determinado curso(id)
         sql = trans_sql_select('professor_course', 'professor_id', where="course_id = '{}'".format(id_course))
-        professor_class_id_list = get_select_executor(sql)
-        print(professor_class_id_list)
-        # pegar todos subjects_id de um determinado professor_id da tabela professor_class para poder separar os periodos
+        professor_course_id_list = get_select_executor(sql)
+        print(professor_course_id_list)
         
-        # pegar todos subjects_id do 'periodo' passado
+        # test_trans_sql = trans_sql_select_with_conditions('professor_periods', 'professor_id',
+        #                                  where="periods = '{}'".format(period), subcondition=[("professor_id", 1)
+        #                                                                                       ,('professor_id', 2)
+        #                                                                                       ,('professor_id', 3)
+        #                                                                                       ,("professor_id", 4)])
         
-        # pegar todos contatos do professor no id passado
+        # print(test_trans_sql)
         
+        professor_ids_list = list()
+        
+        print(professor_course_id_list == [])
+        
+        for val in professor_course_id_list:
+            print(val)
+            professor_ids_list.append(("professor_id", val[0]))
 
-        # periods = dict()
-        # periods["periods"] = result[0][0]
+        # print(professor_ids_list)
+        
+        sql = trans_sql_select_with_conditions("professor_periods", "professor_id", where="periods = '{}'".format(period), 
+                                               subcondition=professor_ids_list)
+        print(sql)
 
-        return "success"
+        # sql = trans_sql_select("professor_periods", "professor_id", where="periods = '{}'".format(period))
+        professor_periods_id_list = get_select_executor(sql)
+        print(professor_periods_id_list)
+
+        professor_list = list()
+        professor_dict = dict()
+
+        for professor_id in professor_periods_id_list:
+            id = professor_id[0]
+            print(id)
+
+            sql = trans_sql_select("professor", "name", "slack", "email", "whatsapp", "other", "favorite",
+                                   where="id = '{}'".format(id))
+
+            print(sql)
+
+            professor_values = get_select_executor(sql)
+
+            professor_dict["name"] = professor_values[0][0]
+            professor_dict["slack"] = professor_values[0][1]
+            professor_dict["email"] = professor_values[0][2]
+            professor_dict["whatsapp"] = professor_values[0][3]
+            professor_dict["other"] = professor_values[0][4]
+            professor_dict["favorite"] = professor_values[0][5]
+
+            professor_list.append(professor_dict)
+
+        return professor_list
     except Exception as e:
         raise e
 
