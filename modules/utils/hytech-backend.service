@@ -3,7 +3,7 @@
 Description="HyTech Back-end"
 
 [Service]
-WorkingDirectory=/root/communic-health-api/server/
+WorkingDirectory=/opt/hytech-backend/
 ExecStart=/opt/hytech-backend/venv/bin/uvicorn server:app --host 0.0.0.0 --port 8000
 Restart=always
 User=root
