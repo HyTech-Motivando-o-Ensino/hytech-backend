@@ -64,13 +64,15 @@ def trans_sql_select_with_conditions(table, *args, where=None, subcondition=None
             for obj in subcondition:
                 key, value = obj
                 cont+=1
-                
+
                 if cont == 1:
                     sql_query += "{} = '{}'".format(key, value)
                 elif cont == size:
                     sql_query += " or {} = '{}')".format(key, value)
                 else:
                     sql_query += " or {} = '{}'".format(key, value)
+
+        # sql_query += " GROUP BY {}".format(subcondition[0][0])
 
         return sql_query
     except Exception as e:
@@ -219,7 +221,7 @@ def get_all_professor_by_period_id_course(period, id_course):
             professor_dict["other"] = professor_values[0][4]
             professor_dict["favorite"] = professor_values[0][5]
 
-            professor_list.append(professor_dict)
+            professor_list.append(professor_dict.copy())
 
         return professor_list
     except Exception as e:
