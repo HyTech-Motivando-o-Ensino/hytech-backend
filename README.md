@@ -1,26 +1,65 @@
-# hytech-backend
-Repositório para núcleo do backend do nosso projeto (Chatbot)
+<h1 align="center">Hytech->Backend</h1>
 
-## Instalando/rodando projeto fastAPI (primeira vez)
+:question: Repositório para núcleo do backend do nosso projeto (Chatbot).
 
-- clone nosso repositório backend
+*Sistema Operacionais:*
+- [Windows](#para-windows)
+- [Linux](#para-linux)
+- [Mac](#para-mac)
 
-- entrando dentro do repositório crie a venv
+# Para Windows
+>## Instalando o projeto
 
-- crie a venv dentro do repositório
+### 🟤Clone nosso repositório backend usando o git bash
+```Python
+git clone <https://github.com/HyTech-Motivando-o-Ensino/hytech-backend.git>
+```
+`OBS: É necessário ter instalado o git, acesse em: https://git-scm.com/downloads`
 
-- ative a venv
+`OBS: É necessário ter instalado o python 3.8.3, acesse em: https://www.python.org/downloads/`
+### 🟤Entrando dentro do repositório crie a venv
+```Python
+python -m venv venv
+```
+`OBS: É necessário instalar o ambiente virtual caso ainda não tenha em sua máquina`
+```Terminal
+pip install pipenv
+```
+### 🟤Ative a venv
+```Python
+source venv/Scripts/activate
+```
+### 🟤Instale o framework fastAPI
+```Python
+pip install fastapi
+```
+### 🟤Instale o servidor do fastAPI 
+```Python
+pip install "uvicorn[standard]"
+```
+`OBS: É necessário instalar o uvicorn`
+### 🟤Instale o requirements.txt
+```Python
+pip install -r requirements.txt
+```
+``` json 
+ OBS: Caso de erro, ainda irá rodar normalmente
+``` 
 
-- instale o framework fastAPI $pip install fastapi
+>## Rodando o projeto novamente
 
-- instale o servidor do fastAPI (Uvicorn) $pip install "uvicorn[standard]"
+### 🟤Ative a venv
+```Python
+source venv/Scripts/activate
+```
+### 🟤Rode o servidor
+```Python
+uvicorn server:app --reload
+```
+### 🟤Acesse http://127.0.0.1:8000
 
-- instale o requirements.txt $pip install -r requirements.txt
+# Para Linux
+###### (Em breve!)
 
-(apartir da segunda vez)
-
-- com a venv ativa
-
-- $uvicorn server:app --reload
-
-- acesse http://127.0.0.1:8000
+# Para Mac
+###### (Em breve!)
