@@ -1,5 +1,5 @@
 [Unit]
-Description="HyTech Back-end"
+Description="HyTech Front-end"
 
 [Service]
 WorkingDirectory=/opt/hytech-frontend/
