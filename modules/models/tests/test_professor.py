@@ -16,7 +16,7 @@ from professor import Professor
 
 class TesteProfessor(TestCase):
     def setUp(self):
-        self.professor = Professor()
+        self.professor = Professor(1, "Juliano Machado Borges", photo, "(81)99990-0000", "jmb@cesar.school", "Juliano", "(81)99990-0000")
 
 
 if __name__ == '__main__':
