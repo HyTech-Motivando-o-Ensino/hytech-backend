@@ -6,10 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from dict import options
 
-class PythonOrgSearch(unittest.TestCase):
+class bot_contacts(unittest.TestCase):
 
         def setUp(self):
-                self.driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe") #path webdriver archive
+                self.driver = webdriver.Chrome("chromedriver.exe") #path webdriver archive
                 self.driver.get("https://hytech-cesar.sagittax.org/") #The site
 
         def test_get_professor_contacts(self):
