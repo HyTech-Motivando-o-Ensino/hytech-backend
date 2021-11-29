@@ -2,7 +2,7 @@ class Entity:
     def __init__(self, id, name, photo=None):
         self.__id = id
         self.__name = name
-        self.__photo = None
+        self.__photo = photo
 
     def get_id(self):
         return self.__id
