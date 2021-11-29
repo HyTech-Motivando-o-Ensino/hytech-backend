@@ -1,0 +1,21 @@
+name: CI SSH
+on:
+  workflow_run:
+    workflows: ["CD Deploy SSH"]
+    types:
+      - completed
+jobs:
+  job_server_integrations:
+    name: CI Back-end
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{secrets.HOSTNAME}}
+        username: ${{secrets.USERNAME}}
+        password: ${{secrets.PASSWORD}}
+        script: |
+           ./ci-test-db.sh
+           ./ci-test-front.sh
+           ./ci-unit-tests.sh
